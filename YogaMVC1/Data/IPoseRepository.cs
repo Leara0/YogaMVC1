@@ -12,7 +12,7 @@ public interface IPoseRepository
     List<Pose> GetAllPosesInThisCategory(List<int> poseIds);
     
     //add in return poses by difficulty?
-    Pose AssignCatAndDiffToPose(int id);
-    void UpdatePose(Pose pose);
+    
+
     
 }

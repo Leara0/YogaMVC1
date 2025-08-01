@@ -47,23 +47,6 @@ public class PoseRepository(IDbConnection db)  : IPoseRepository
         return poses;
     }
 
-    public Pose AssignCatAndDiffToPose(int id)
-    {
-        var pose = GetPoseById(id);
-        
-        var category = new CategoryRepository(_db);
-        var difficulty = new DifficultyRepository(_db);
-        
-        pose.Categories = category.GetAllCategories();
-        pose.Difficulties = difficulty.GetAllDifficulties();
-        pose.CategoryIdPerPose = GetCategoryIdByPoseId(id);
-        pose.Difficulty_Level = GetDifficultyLevelByPoseId(id);
-        return pose;
-    }
+    
 
-    public void UpdatePose(Pose pose)
-    {
-        _db.Execute("UPDATE poses SET English_Name = @name, Pose_Description = @description, Pose_Benefits = @benefits, Difficulty_Level = @difficulty, Category - @category",
-            new {name = pose.English_Name, description = pose.Pose_Description, benefits = pose.Pose_Benefits, difficulty = pose.Difficulty_Level, category = pose.Category, });
-    }
-}
+   }

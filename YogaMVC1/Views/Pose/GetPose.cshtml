@@ -11,8 +11,10 @@
     <title>Document</title>
 </head>
 <body>
+
 <h2>@Model.English_Name Pose:</h2>
-<img src="@Model.Url_Svg" alt="@Model.English_Name" height="500px">
+<a asp-controller="Pose" asp-action="UpdatePose" asp-route-id="@Model.Pose_Id" style="display: block">Update Pose</a>
+<img src="@(Model.Url_Svg ?? Url.Content("~/Images/no-image.svg"))" alt="@Model.English_Name" height="500px">
 <p><strong>Sanskrit Name:</strong> @Model.Sanskrit_Name</p>
 <p><strong>Sanskrit Name Translation:</strong> @Model.Translation_Name</p>
 <p><strong>Description:</strong> @Model.Pose_Description</p>
@@ -22,7 +24,8 @@
     {
         <a href="@Url.Action("GetCategoryById", "Category", new { id = cat.CatId.Value })">
             @cat.CatName
-        </a>@(cat != Model.CategoryList.Last() ? ", " : "")
+        </a>
+        @(cat != Model.CategoryList.Last() ? ", " : "")
     }
 </p>
 <p><strong>Pose Difficulty:</strong> @Model.Difficulty_Level</p>

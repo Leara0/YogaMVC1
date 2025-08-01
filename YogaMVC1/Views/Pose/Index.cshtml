@@ -23,7 +23,7 @@
             <td><a asp-controller="Pose" asp-action="GetPose" asp-route-id="@pose.Pose_Id">@pose.English_Name</a></td>
             <td>@pose.Sanskrit_Name</td>
             <td>@pose.Pose_Description</td>
-            <td><img src="@pose.Url_Svg_Alt" alt="@pose.English_Name" style="max-height: 50px"></td>
+            <td><img src="@(pose.Url_Svg_Alt ?? Url.Content("~/Images/no-image.svg"))" alt="@pose.English_Name" style="max-height: 50px"></td>
         </tr>
     }
 </table>

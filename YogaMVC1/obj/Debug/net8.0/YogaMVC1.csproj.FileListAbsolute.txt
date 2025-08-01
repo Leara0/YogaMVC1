@@ -70,3 +70,4 @@ C:\Users\Sehers\Desktop\repos\YogaMVC1\YogaMVC1\bin\Debug\net8.0\Newtonsoft.Json
 C:\Users\Sehers\Desktop\repos\YogaMVC1\YogaMVC1\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Sehers\Desktop\repos\YogaMVC1\YogaMVC1\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 C:\Users\Sehers\Desktop\repos\YogaMVC1\YogaMVC1\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Sehers\Desktop\repos\YogaMVC1\YogaMVC1\obj\Debug\net8.0\YogaMVC1.sourcelink.json

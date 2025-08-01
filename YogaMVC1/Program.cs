@@ -1,7 +1,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 using YogaMVC1.Data;
-using YogaMVC1.Data.UpdateFactory;
+using YogaMVC1.Data.InsertOrUpdatePose;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,8 @@ builder.Services.AddScoped<IDbConnection>((s) =>
 builder.Services.AddTransient<IPoseRepository, PoseRepository>();
 builder.Services.AddTransient<IDifficultyRepository, DifficultyRepository>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-builder.Services.AddTransient<IPoseUpdateFactory, PoseUpdateFactory>();
+builder.Services.AddTransient<IInsertOrUpdateFactory, InsertOrUpdateFactory>();
+builder.Services.AddTransient<IInsertOrUpdateToDatabase, InsertOrUpdateToDatabase>();
 
 var app = builder.Build();
 
