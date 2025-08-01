@@ -1,0 +1,29 @@
+@model CategoryDetailViewModel
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p>@Model.Category.Category_Name</p>
+<p><strong>Description:</strong> @Model.Category.Category_Description</p>
+<p><strong>Poses in thie category:</strong></p>
+<ul>
+    @foreach (var pose in Model.Poses)
+    {
+        <li>
+            <a asp-controller="Pose" asp-action="GetPose" asp-route-id="@pose.Pose_Id">@pose.English_Name</a>
+        </li>
+    }
+    
+    
+    
+</ul>
+
+</body>
+</html>

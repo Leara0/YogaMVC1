@@ -1,0 +1,36 @@
+@model IEnumerable<Pose>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2>Poses</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Sanskrit Name</th>
+        <th>Description</th>
+        <th>Image</th>
+    </tr>
+    @foreach (var pose in @Model)
+    {
+        <tr>
+            <td><a asp-controller="Pose" asp-action="GetPose" asp-route-id="@pose.Pose_Id">@pose.English_Name</a></td>
+            <td>@pose.Sanskrit_Name</td>
+            <td>@pose.Pose_Description</td>
+            <td><img src="@pose.Url_Svg_Alt" alt="@pose.English_Name" style="max-height: 50px"></td>
+        </tr>
+    }
+</table>
+@foreach (var pose in @Model)
+{
+    
+}
+
+</body>
+</html>
