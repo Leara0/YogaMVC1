@@ -24,17 +24,11 @@ public class PoseRepository(IDbConnection db)  : IPoseRepository
     }
     public string GetDifficultyLevelByPoseId(int id)
     {
-        var difficultyId = _db.QuerySingleOrDefault<int>("SELECT DISTINCT Difficulty_Id FROM pose_mapping WHERE Pose_Id = @id", new { id });
+        var difficultyId = _db.QuerySingleOrDefault<int>("SELECT Difficulty_Id FROM poses WHERE Pose_Id = @id", new { id });
         
         return _db.QuerySingleOrDefault<string>("SELECT Difficulty_Level FROM difficulty WHERE Difficulty_Id = @id",
             new { id = difficultyId });
     }
-
-    public int GetDifficultyIdByPoseId(int id)
-    {
-        return _db.QuerySingleOrDefault<int>("SELECT DISTINCT Difficulty_Id FROM pose_mapping WHERE Pose_Id = @id", new { id });
-    }
-
     public List<int> GetCategoryIdByPoseId(int id)
     {
         return _db.Query<int>("SELECT Category_Id FROM pose_mapping WHERE Pose_Id = @id", new { id }).ToList();

@@ -21,7 +21,7 @@ public class CategoryController : Controller
     public IActionResult Index()
     {
         var categories = _catRepo.GetAllCategories();
-        _logger.LogInformation("All categories retrieved");
+        _logger.LogInformation("Category Controller Index Action called");
         return View(categories);
     }
 
@@ -38,7 +38,7 @@ public class CategoryController : Controller
         };
         
         
-        _logger.LogInformation("GetCategoryById retrieved");
+        _logger.LogInformation("Category Controller GetCategoryById called");
         return View(viewModel);
     }
 }

@@ -20,7 +20,6 @@ public class InsertOrUpdateFactory:IInsertOrUpdateFactory
     {
         var pose = _poseRepo.GetPoseById(poseId);
         var selectedCategories = _poseRepo.GetCategoryIdByPoseId(poseId);
-        var currentDiffId = _poseRepo.GetDifficultyIdByPoseId(poseId);
         var difficulties = _diffRepo.GetAllDifficulties();
         var categories = _catRepo.GetAllCategories();
 
@@ -30,14 +29,14 @@ public class InsertOrUpdateFactory:IInsertOrUpdateFactory
             Name = pose.English_Name,
             PoseDesc = pose.Pose_Description,
             PoseBenefits = pose.Pose_Benefits,
-            SelectedDifficultyId = currentDiffId,
+            SelectedDifficultyId = pose.Difficulty_Id,
             SelectedCategoryIds = selectedCategories,
 
             DifficultyOptions = difficulties.Select(d => new SelectListItem
             {
                 Value = d.Difficulty_Id.ToString(),
                 Text = d.Difficulty_Level,
-                Selected = d.Difficulty_Id == currentDiffId
+                Selected = d.Difficulty_Id == pose.Difficulty_Id
             }).ToList(),
 
             CategoryOptions = categories.Select(c => new SelectListItem

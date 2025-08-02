@@ -8,6 +8,7 @@ public class UpdatePoseModel
     public string Name { get; set; }
     public string PoseDesc { get; set; }
     public string PoseBenefits { get; set; }
+    public int Difficulty_Id { get; set; }
     
     public int SelectedDifficultyId { get; set; }
     public List<int> SelectedCategoryIds { get; set; } = new List<int>();

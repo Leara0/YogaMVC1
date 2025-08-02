@@ -1,18 +1,63 @@
-@model TModel
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication.OAuth.Claims
+@model InsertPoseModel
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<form asp-action="InsertPoseToDatabase" asp-controller="Pose" method="post">
+    <!--Required field-->
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+ 
+    <div class="form-group">
+        <label asp-for="SanskritName" class="control-label">Sanskrit Name</label>
+        <input type="text" asp-for="SanskritName" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="TranslationName" class="control-label">Sanskrit Name Translation</label>
+        <input type="text" asp-for="TranslationName" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="PoseDescription" class="control-label">Pose Description</label>
+        <input type="text" asp-for="PoseDescription" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="PoseBenefits" class="control-label">Pose Benefits</label>
+        <input type="text" asp-for="PoseBenefits" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="UrlSvg" class="control-label">Svg Image Url</label>
+        <input type="text" asp-for="UrlSvg" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="UrlSvgAlt" class="control-label">Image for Thumbnail</label>
+        <input type="text" asp-for="UrlSvgAlt" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="SelectedDifficultyId" class="control-label">Difficulty</label>
+        <select asp-for="SelectedDifficultyId" asp-items="Model.DifficultyOptions" class="form-control">
+            <option value="">-- Select Difficulty --</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label">Categories</label>
+        @foreach (var cat in Model.CategoryOptions)
+        {
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="SelectedCategoryIds" value="@cat.Value"/>
+                <label class="form-check-label">@cat.Text</label>
+            </div>
+        }
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create Pose</button>
+ </form>

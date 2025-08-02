@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YogaMVC1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e18068f8251ea3604124b6a323ec77e3713f7015")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f7a7b4ce5d66556c1642fddc5d875e19e334b74")]
 [assembly: System.Reflection.AssemblyProductAttribute("YogaMVC1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YogaMVC1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

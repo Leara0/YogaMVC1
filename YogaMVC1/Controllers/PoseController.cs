@@ -30,6 +30,7 @@ public class PoseController : Controller
     public IActionResult GetPose(int id)
     {
         var pose = _poseRepo.GetPoseById(id);
+        _logger.LogInformation("Pose Controller GetPoseById called");
         return View(pose);
     }
 
@@ -38,6 +39,7 @@ public class PoseController : Controller
         var pose = _insertOrUpdateFactory.BuildUpdateModel(id);
         //this gets the update pose model which had the category and difficulty options (using SelectListItem)
         
+        _logger.LogInformation("Pose Controller UpdatePose Action called");
         if (pose == null)
             return RedirectToAction("Index");
         return View(pose);
@@ -46,12 +48,22 @@ public class PoseController : Controller
     public IActionResult UpdatePoseToDatabase(UpdatePoseModel pose)
     {
         _insertOrUpdateToDatabase.UpdatePoseToDatabase(pose);
+        _logger.LogInformation("Pose Controller UpdatePoseToDatabase called");
         return RedirectToAction("GetPose", new { id = pose.PoseId });
     }
     //GET
     public IActionResult InsertPose()
     {
         var pose = _insertOrUpdateFactory.BuildInsertModel();
+        _logger.LogInformation("Pose Controller InsertPose Action called");
         return View(pose);
+    }
+
+    //POST
+    public IActionResult InsertPoseToDatabase(InsertPoseModel pose)
+    {
+        var newPoseId = _insertOrUpdateToDatabase.InsertPoseToDatabase(pose);
+        _logger.LogInformation("Pose Controller InsertPostToDatabase called");
+        return RedirectToAction("GetPose", new { id = newPoseId });
     }
 }

@@ -11,13 +11,13 @@ public class Pose
     public string Translation_Name { get; set; }
     public string Pose_Description { get; set; }
     public string Pose_Benefits { get; set; }
+    public int Difficulty_Id { get; set; }
     public string Url_Svg { get; set; }
     public string Url_Png { get; set; }
     public string Url_Svg_Alt { get; set; }
     
     
     public string Difficulty_Level { get; set; }
-    public int Difficulty_Level_Id { get; set; }
     public List<SelectListItem> DifficultyOptions { get; set; }
     
     
