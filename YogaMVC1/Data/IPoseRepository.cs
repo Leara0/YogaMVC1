@@ -9,6 +9,7 @@ public interface IPoseRepository
     string GetDifficultyLevelByPoseId(int id);
     List<int> GetCategoryIdByPoseId(int id);
     List<Pose> GetAllPosesInThisCategory(List<int> poseIds);
+    void DeletePoseById(int id);
     
     //add in return poses by difficulty?
     

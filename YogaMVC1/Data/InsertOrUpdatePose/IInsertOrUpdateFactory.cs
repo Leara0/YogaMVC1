@@ -4,7 +4,7 @@ namespace YogaMVC1.Data.InsertOrUpdatePose;
 
 public interface IInsertOrUpdateFactory
 {
-    UpdatePoseModel BuildUpdateModel(int poseId);
+    InsertOrUpdatePoseModel BuildUpdateModel(int poseId);
     
-    InsertPoseModel BuildInsertModel();
+    InsertOrUpdatePoseModel BuildInsertModel();
 }

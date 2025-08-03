@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\YogaMVC1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Sehers\\Desktop\\repos\\YogaMVC1\\YogaMVC1\\wwwroot\\Images\\no-image.svg",
+      "PackagePath": "staticwebassets\\Images\\no-image.svg"
+    },
+    {
       "Id": "C:\\Users\\Sehers\\Desktop\\repos\\YogaMVC1\\YogaMVC1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

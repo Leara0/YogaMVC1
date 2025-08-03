@@ -30,7 +30,7 @@ public class PoseController : Controller
     public IActionResult GetPose(int id)
     {
         var pose = _poseRepo.GetPoseById(id);
-        _logger.LogInformation("Pose Controller GetPoseById called");
+        _logger.LogInformation($"Pose Controller GetPoseById called on pose {id}");
         return View(pose);
     }
 
@@ -44,8 +44,8 @@ public class PoseController : Controller
             return RedirectToAction("Index");
         return View(pose);
     }
-//Post
-    public IActionResult UpdatePoseToDatabase(UpdatePoseModel pose)
+    [HttpPost]
+    public IActionResult UpdatePoseToDatabase(InsertOrUpdatePoseModel pose)
     {
         _insertOrUpdateToDatabase.UpdatePoseToDatabase(pose);
         _logger.LogInformation("Pose Controller UpdatePoseToDatabase called");
@@ -59,11 +59,19 @@ public class PoseController : Controller
         return View(pose);
     }
 
-    //POST
-    public IActionResult InsertPoseToDatabase(InsertPoseModel pose)
+    [HttpPost]
+    public IActionResult InsertPoseToDatabase(InsertOrUpdatePoseModel orUpdatePose)
     {
-        var newPoseId = _insertOrUpdateToDatabase.InsertPoseToDatabase(pose);
+        var newPoseId = _insertOrUpdateToDatabase.InsertPoseToDatabase(orUpdatePose);
         _logger.LogInformation("Pose Controller InsertPostToDatabase called");
         return RedirectToAction("GetPose", new { id = newPoseId });
+    }
+    [HttpPost]
+    public IActionResult DeletePose(int id)
+    {
+        _logger.LogInformation($"DeletePose called with id: {id}");
+        _poseRepo.DeletePoseById(id);
+        _logger.LogInformation("Pose Controller DeletePose Action called");
+        return RedirectToAction("Index");
     }
 }

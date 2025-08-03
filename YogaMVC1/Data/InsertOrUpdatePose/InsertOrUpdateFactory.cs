@@ -16,20 +16,24 @@ public class InsertOrUpdateFactory:IInsertOrUpdateFactory
         _diffRepo = diffRepo;
     }
     
-    public UpdatePoseModel BuildUpdateModel(int poseId)
+    public InsertOrUpdatePoseModel BuildUpdateModel(int poseId)
     {
         var pose = _poseRepo.GetPoseById(poseId);
         var selectedCategories = _poseRepo.GetCategoryIdByPoseId(poseId);
         var difficulties = _diffRepo.GetAllDifficulties();
         var categories = _catRepo.GetAllCategories();
 
-        return new UpdatePoseModel()
+        return new InsertOrUpdatePoseModel()
         {
             PoseId = pose.Pose_Id,
             Name = pose.English_Name,
-            PoseDesc = pose.Pose_Description,
+            SanskritName = pose.Sanskrit_Name,
+            TranslationName = pose.Translation_Name,
+            PoseDescription = pose.Pose_Description,
             PoseBenefits = pose.Pose_Benefits,
-            SelectedDifficultyId = pose.Difficulty_Id,
+            UrlSvg = pose.Url_Svg,
+            UrlSvgAlt = pose.Url_Svg_Alt,
+            DifficultyId = pose.Difficulty_Id,
             SelectedCategoryIds = selectedCategories,
 
             DifficultyOptions = difficulties.Select(d => new SelectListItem
@@ -50,11 +54,11 @@ public class InsertOrUpdateFactory:IInsertOrUpdateFactory
         };
     }
 
-    public InsertPoseModel BuildInsertModel()
+    public InsertOrUpdatePoseModel BuildInsertModel()
     {
         var difficulties = _diffRepo.GetAllDifficulties();
         var categories = _catRepo.GetAllCategories();
-        return new InsertPoseModel()
+        return new InsertOrUpdatePoseModel()
         {
             DifficultyOptions = difficulties.Select(d => new SelectListItem
             {

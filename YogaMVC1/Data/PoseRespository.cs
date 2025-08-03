@@ -41,6 +41,9 @@ public class PoseRepository(IDbConnection db)  : IPoseRepository
         return poses;
     }
 
-    
-
-   }
+    public void DeletePoseById(int id)
+    {
+        _db.Execute("DELETE FROM pose_mapping WHERE Pose_Id = @id", new { id });
+        _db.Execute("DELETE FROM poses WHERE Pose_Id = @id", new { id });
+    }
+}

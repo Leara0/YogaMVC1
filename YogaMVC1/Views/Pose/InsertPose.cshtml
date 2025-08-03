@@ -1,6 +1,6 @@
 @using System.Security.Claims
 @using Microsoft.AspNetCore.Authentication.OAuth.Claims
-@model InsertPoseModel
+@model InsertOrUpdatePoseModel
 
 
 <form asp-action="InsertPoseToDatabase" asp-controller="Pose" method="post">
@@ -34,16 +34,18 @@
     <div class="form-group">
         <label asp-for="UrlSvg" class="control-label">Svg Image Url</label>
         <input type="text" asp-for="UrlSvg" class="form-control"/>
+        <span asp-validation-for="UrlSvg" class="text-danger"></span>
     </div>
     
     <div class="form-group">
         <label asp-for="UrlSvgAlt" class="control-label">Image for Thumbnail</label>
         <input type="text" asp-for="UrlSvgAlt" class="form-control"/>
+        <span asp-validation-for="UrlSvgAlt" class="text-danger"></span>
     </div>
     
     <div class="form-group">
-        <label asp-for="SelectedDifficultyId" class="control-label">Difficulty</label>
-        <select asp-for="SelectedDifficultyId" asp-items="Model.DifficultyOptions" class="form-control">
+        <label asp-for="DifficultyId" class="control-label">Difficulty</label>
+        <select asp-for="DifficultyId" asp-items="Model.DifficultyOptions" class="form-control">
             <option value="">-- Select Difficulty --</option>
         </select>
     </div>
@@ -60,4 +62,8 @@
     </div>
     
     <button type="submit" class="btn btn-primary">Create Pose</button>
- </form>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

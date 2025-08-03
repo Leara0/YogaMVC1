@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Images\" />
+      <None Include="wwwroot\Images\no-image.svg" />
     </ItemGroup>
 
 </Project>

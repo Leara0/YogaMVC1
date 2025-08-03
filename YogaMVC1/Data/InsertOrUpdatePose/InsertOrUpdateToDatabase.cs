@@ -8,14 +8,16 @@ public class InsertOrUpdateToDatabase(IDbConnection db) : IInsertOrUpdateToDatab
 {
     private readonly IDbConnection _db = db;
 
-    public void UpdatePoseToDatabase(UpdatePoseModel model)
+    public void UpdatePoseToDatabase(InsertOrUpdatePoseModel model)
     {
         //update pose table
-        _db.Execute("UPDATE poses SET English_Name = @Name, Pose_Description = @Description, "+
-                    "Pose_Benefits= @Benefits, Difficulty_Id = @Difficulty "+
+        _db.Execute("UPDATE poses SET English_Name = @Name, Sanskrit_Name = @SanskritName, "+
+                    "Translation_Name = @TranslationName, Pose_Description = @Description, "+
+                    "Pose_Benefits= @Benefits, Url_Svg = @UrlSvg, Url_Svg_Alt = @UrlSvgAlt, Difficulty_Id = @Difficulty "+
                     "WHERE Pose_Id = @PoseId",
-            new {Name = @model.Name, Description = @model.PoseDesc, Benefits = model.PoseBenefits, 
-                Difficulty = model.SelectedDifficultyId, PoseId = model.PoseId});
+            new {Name = model.Name, SanskritName = model.SanskritName, TranslationName = model.TranslationName,
+                Description = model.PoseDescription, Benefits = model.PoseBenefits, UrlSvg = model.UrlSvg, UrlSvgAlt = model.UrlSvgAlt,
+                Difficulty = model.DifficultyId, PoseId = model.PoseId});
         
         //delete old mapping
         _db.Execute("DELETE FROM pose_mapping WHERE pose_id = @PoseId", new { PoseId = model.PoseId });
@@ -32,7 +34,7 @@ public class InsertOrUpdateToDatabase(IDbConnection db) : IInsertOrUpdateToDatab
         }
     }
 
-    public int InsertPoseToDatabase(InsertPoseModel model)
+    public int InsertPoseToDatabase(InsertOrUpdatePoseModel model)
     {
         //insert into pose table (and grab the id right away to use in the next step
         var newPoseId = _db.ExecuteScalar<int>(
@@ -47,7 +49,7 @@ public class InsertOrUpdateToDatabase(IDbConnection db) : IInsertOrUpdateToDatab
             {
                 Name = model.Name, SanskritName = model.SanskritName, TranslationName = model.TranslationName,
                 PoseDescription = model.PoseDescription, PoseBenefits = model.PoseBenefits,
-                DifficultyId = model.SelectedDifficultyId, UrlSvg = model.UrlSvg, UrlSvgAlt = model.UrlSvgAlt
+                DifficultyId = model.DifficultyId, UrlSvg = model.UrlSvg, UrlSvgAlt = model.UrlSvgAlt
             });
 
         //insert into mapping table

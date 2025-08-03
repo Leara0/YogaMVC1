@@ -36,8 +36,6 @@ public class CategoryController : Controller
             Category = category,
             Poses = poses,
         };
-        
-        
         _logger.LogInformation("Category Controller GetCategoryById called");
         return View(viewModel);
     }

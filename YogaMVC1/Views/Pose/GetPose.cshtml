@@ -13,7 +13,14 @@
 <body>
 
 <h2>@Model.English_Name Pose:</h2>
-<a asp-controller="Pose" asp-action="UpdatePose" asp-route-id="@Model.Pose_Id" style="display: block">Update Pose</a>
+<a asp-controller="Pose" asp-action="UpdatePose" asp-route-id="@Model.Pose_Id" >Update Pose</a>
+<div style="display: block">
+    <form asp-action="DeletePose" asp-controller="Pose" asp-route-id="@Model.Pose_Id" method="post">
+        <input asp-for="Pose_Id" type="hidden"/>
+        <input type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')" value="Delete this pose"/>
+    </form>
+</div>
+
 <img src="@(Model.Url_Svg ?? Url.Content("~/Images/no-image.svg"))" alt="@Model.English_Name" height="500px">
 <p><strong>Sanskrit Name:</strong> @Model.Sanskrit_Name</p>
 <p><strong>Sanskrit Name Translation:</strong> @Model.Translation_Name</p>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9xym+S4tEHqDo7w+Q6lnzidAovkKn+al6uTNdbXmeCM=",
+  "Hash": "T9be0ogMeMM2sSQXxksVnnBr7LIYiH9tPGgOWF2KQmE=",
   "Source": "YogaMVC1",
   "BasePath": "_content/YogaMVC1",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Sehers\\Desktop\\repos\\YogaMVC1\\YogaMVC1\\wwwroot\\Images\\no-image.svg",
+      "SourceId": "YogaMVC1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sehers\\Desktop\\repos\\YogaMVC1\\YogaMVC1\\wwwroot\\",
+      "BasePath": "_content/YogaMVC1",
+      "RelativePath": "Images/no-image.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\no-image.svg"
     },
     {
       "Identity": "C:\\Users\\Sehers\\Desktop\\repos\\YogaMVC1\\YogaMVC1\\wwwroot\\js\\site.js",

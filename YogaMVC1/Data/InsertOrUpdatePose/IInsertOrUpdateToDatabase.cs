@@ -4,7 +4,7 @@ namespace YogaMVC1.Data.InsertOrUpdatePose;
 
 public interface IInsertOrUpdateToDatabase
 {
-    void UpdatePoseToDatabase(UpdatePoseModel model);
+    void UpdatePoseToDatabase(InsertOrUpdatePoseModel model);
     
-    int InsertPoseToDatabase(InsertPoseModel model);
+    int InsertPoseToDatabase(InsertOrUpdatePoseModel model);
 }
